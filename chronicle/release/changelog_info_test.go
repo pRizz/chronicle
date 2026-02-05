@@ -57,6 +57,9 @@ func Test_getChangelogStartingRelease(t *testing.T) {
 			}
 			got, err := getChangelogStartingRelease(tt.summer, tt.sinceTag)
 			tt.wantErr(t, err)
+			if tt.name == "error when fallback to last release does not exist" {
+				assert.Contains(t, err.Error(), "no GitHub releases found")
+			}
 			assert.Equal(t, tt.want, got)
 		})
 	}

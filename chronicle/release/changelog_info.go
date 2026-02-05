@@ -116,7 +116,7 @@ func getChangelogStartingRelease(summer Summarizer, sinceTag string) (*Release, 
 			return nil, fmt.Errorf("unable to determine last release: %w", err)
 		} else if lastRelease == nil {
 			// TODO: support when there hasn't been the first release (use date of first repo commit)
-			return nil, errors.New("unable to determine last release")
+			return nil, errors.New("unable to determine last release: no GitHub releases found (create a non-draft release or set --since-tag)")
 		}
 	}
 	return lastRelease, nil

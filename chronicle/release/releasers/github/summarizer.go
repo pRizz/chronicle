@@ -115,7 +115,7 @@ func (s *Summarizer) LastRelease() (*release.Release, error) {
 			Date:    latestRelease.Date,
 		}, nil
 	}
-	return nil, fmt.Errorf("unable to find latest release")
+	return nil, nil
 }
 
 func (s *Summarizer) Changes(sinceRef, untilRef string) ([]change.Change, error) {
